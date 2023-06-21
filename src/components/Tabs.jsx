@@ -43,7 +43,7 @@ function Tabs(props) {
       setTabData(response);
       props.setLoader(false);
     });
-  });
+  }, []);
 
   return (
     <div className="container">
