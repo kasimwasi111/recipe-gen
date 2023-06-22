@@ -30,11 +30,11 @@ function Popup({ recipe, closePopup }) {
             <AiOutlineClose />
           </button>
         </div>
-        <div className="pop-right-col">
+        {/* <div className="pop-right-col">
           <div className="pop-image-wrapper">
             <img src={recipe.image} alt={recipe.label} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
