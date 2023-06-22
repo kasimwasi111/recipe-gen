@@ -317,12 +317,12 @@ p {
 
   .flexItem {
     background-color: #0a2660;
-
     border-radius: 6px;
     overflow: hidden;
     width: 100%;
     margin-bottom: 20px;
     box-shadow: 20px 20px 50px grey;
+    cursor: pointer;
 
     @include small {
       width: calc(100% / 2 - 20px);
