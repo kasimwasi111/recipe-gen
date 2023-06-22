@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { fetchData } from "../service";
+import Popup from "./Popup";
 
 function RecipeLists(props) {
   const [searchedTearm, setSearchedTearm] = useState("");
   const [query, setQuery] = useState("pasta");
   const [data, setData] = useState("");
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const searchrecipe = (searchQuery) => {
     fetchData(searchQuery).then((response) => {
@@ -20,6 +23,17 @@ function RecipeLists(props) {
       props.setLoader(false);
     });
   }, []);
+
+  const openPopup = (recipe) => {
+    setSelectedRecipe(recipe);
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setSelectedRecipe(null);
+    setShowPopup(false);
+  };
+
   return (
     <div className="container">
       <div className="heading-line">
@@ -29,7 +43,7 @@ function RecipeLists(props) {
             onChange={(e) => setSearchedTearm(e.target.value)}
             value={searchedTearm}
             type="text"
-            placeholder="Search you recipe"
+            placeholder="Search your favourite recipe"
           />
           <button
             onClick={() => (searchrecipe(searchedTearm), props.setLoader(true))}
@@ -41,7 +55,11 @@ function RecipeLists(props) {
       <div className="flexbox">
         {data &&
           data?.hits?.map((item, index) => (
-            <div key={index} className="flexItem">
+            <div
+              key={index}
+              className="flexItem"
+              onClick={() => openPopup(item.recipe)}
+            >
               <div className="img-wrapper">
                 <img src={item.recipe.image} alt={item.recipe.label} />
               </div>
@@ -49,6 +67,9 @@ function RecipeLists(props) {
             </div>
           ))}
       </div>
+      {showPopup && selectedRecipe && (
+        <Popup recipe={selectedRecipe} closePopup={closePopup} />
+      )}
     </div>
   );
 }
