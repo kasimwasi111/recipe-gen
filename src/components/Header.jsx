@@ -1,5 +1,6 @@
 import React from "react";
 import { ImSpoonKnife } from "react-icons/im";
+import "../styles/Header.scss";
 
 function Header() {
   return (

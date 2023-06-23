@@ -3,6 +3,7 @@ import { CiPizza } from "react-icons/ci";
 import { GiNoodles, GiFruitBowl, GiCheckMark } from "react-icons/gi";
 import { MdOutlineIcecream } from "react-icons/md";
 import { fetchTabData } from "../service";
+import "../styles/Tabs.scss";
 
 function Tabs(props) {
   const [active, setActive] = useState("Pizza");

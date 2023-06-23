@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { fetchData } from "../service";
 import Popup from "./Popup";
+import "../styles/RecipeLists.scss";
 
 function RecipeLists(props) {
   const [searchedTearm, setSearchedTearm] = useState("");

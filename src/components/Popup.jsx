@@ -1,6 +1,7 @@
 import React from "react";
 import { GiCheckMark } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import "../styles/Popup.scss";
 
 function Popup({ recipe, closePopup }) {
   return (
@@ -30,11 +31,6 @@ function Popup({ recipe, closePopup }) {
             <AiOutlineClose />
           </button>
         </div>
-        {/* <div className="pop-right-col">
-          <div className="pop-image-wrapper">
-            <img src={recipe.image} alt={recipe.label} />
-          </div>
-        </div> */}
       </div>
     </div>
   );
