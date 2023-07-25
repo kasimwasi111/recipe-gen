@@ -6,7 +6,7 @@ import "../styles/RecipeLists.scss";
 
 function RecipeLists(props) {
   const [searchedTearm, setSearchedTearm] = useState("");
-  const [query, setQuery] = useState("beverage");
+  const [query, setQuery] = useState("ice cream");
   const [data, setData] = useState("");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
