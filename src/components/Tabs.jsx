@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CiPizza } from "react-icons/ci";
-import { GiNoodles, GiFruitBowl, GiCheckMark } from "react-icons/gi";
+import { MdEmojiFoodBeverage } from "react-icons/md";
+import { GiFruitBowl, GiCheckMark } from "react-icons/gi";
 import { MdOutlineIcecream } from "react-icons/md";
 import { fetchTabData } from "../service";
 import "../styles/Tabs.scss";
@@ -15,9 +16,9 @@ function Tabs(props) {
       id: "0209cb28fc05320434e2916988f47b71",
     },
     {
-      name: "Noodles",
-      icon: <GiNoodles />,
-      id: "a243e3cd56da95b31e5a86ef52578908",
+      name: "Beverage",
+      icon: <MdEmojiFoodBeverage />,
+      id: "7efad6d94c9cddf786a27ac1042d4c4c",
     },
     {
       name: "Desert",
@@ -35,6 +36,7 @@ function Tabs(props) {
     setActive(name);
     fetchTabData(id).then((response) => {
       setTabData(response);
+      // console.log(response);
       props.setLoader(false);
     });
   };
@@ -42,6 +44,7 @@ function Tabs(props) {
   useEffect(() => {
     fetchTabData(tabLabel[0].id).then((response) => {
       setTabData(response);
+      // console.log(response);
       props.setLoader(false);
     });
   }, []);
